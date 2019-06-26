@@ -3,14 +3,13 @@ import random
 #This program will roll stats for 5th Edition Dungeons and Dragons,
 #with the following parameters:
 # 1. Stats are rolled in order down the list.
-# 2. Each stat is rolled using 4d6 drop lowest, reroll 1's.
+# 2. Each stat is rolled using 4d6 drop lowest.
 # 3. Two stats must be 15 or higher.
-# 4. The stats must total to 85.
+# 4. All stats must sum to at least 80. (83 = sum of standard array.)
 
 #Define a function that generates a random number for a "dice roll".
 def d6():
-    DieRoll = random.randint(1,6) #Random integer between 2 and 6,
-    #equivalent to 1d6 reroll 1's. Can change parameters to keep 1's.
+    DieRoll = random.randint(0,6) #Random integer between 1 and 6.
     return DieRoll #return the value of the roll as output.
 
 #Define a function that generates a list of 4 dice, equal to rolling 4d6.
@@ -39,7 +38,7 @@ def RollAttributes():
 # And two of them must be above 15
 # These parameters are easily adjusted below:
 
-SumAttributesTotal = 85 #The number the stats must add up to.
+SumAttributesTotal = 80 #The number the stats must add up to.
 NumberGoodStats = 2 #This many stats have to be above a certain value.
 GoodStatValue = 15 #This is the value those stats must be >=.
 
@@ -61,10 +60,10 @@ def AttributesAreValid(attributes):
     #Make a list of the dictionary values, and sum them together.
     #If they are == the sum criterion, make it true;
     #Else make it false.
-    # if sum(list(attributes.values())) == SumAttributesTotal:
-    #     SumCondition = 1
-    # else:
-    #     SumCondition = 0
+    if sum(list(attributes.values())) == SumAttributesTotal:
+        SumCondition = 1
+    else:
+        SumCondition = 0
 
     #Perform the logical and operator on the two criteria and return
     #The result, a logical value.
