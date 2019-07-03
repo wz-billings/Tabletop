@@ -5,11 +5,11 @@ import random
 # 1. Stats are rolled in order down the list.
 # 2. Each stat is rolled using 4d6 drop lowest.
 # 3. Two stats must be 15 or higher.
-# 4. All stats must sum to at least 80. (83 = sum of standard array.)
+# 4. All stats must sum to at least 85. (83 = sum of standard array.)
 
 #Define a function that generates a random number for a "dice roll".
 def d6():
-    DieRoll = random.randint(0,6) #Random integer between 1 and 6.
+    DieRoll = random.randint(1,6) #Random integer between 1 and 6.
     return DieRoll #return the value of the roll as output.
 
 #Define a function that generates a list of 4 dice, equal to rolling 4d6.
@@ -38,7 +38,7 @@ def RollAttributes():
 # And two of them must be above 15
 # These parameters are easily adjusted below:
 
-SumAttributesTotal = 80 #The number the stats must add up to.
+SumAttributesTotal = 85 #The number the stats must add up to.
 NumberGoodStats = 2 #This many stats have to be above a certain value.
 GoodStatValue = 15 #This is the value those stats must be >=.
 
