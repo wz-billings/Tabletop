@@ -119,8 +119,8 @@ N <- solve(diag(ncol(Q)) - Q)
 
 
 # Expected number of steps before being absorbed ####
-t <- N %*% matrix(rep(1, length(transient_states)), ncol = 1)
-# Interestingly, from t[00] we can see that it takes, on average, 2.63 death
+t <- colSums(N)
+# Interestingly, from t[00] we can see that it takes, on average, 3.63 death
 # saves 
 
 # Absorbing probabilities ####
