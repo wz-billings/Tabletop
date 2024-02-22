@@ -139,5 +139,7 @@ N_sq <- N * N # Hadamard product of N with itself
 N_2 <- N %*% (2 * N_dg - I_t) - N_sq
 
 # Variance on number of steps ####
-t_2 <- (2 * N - I_t) %*% t - (t * t)
+# Note the first term is transposed from wikipedia page cause I'm using a
+# column stochastic transition matrix rather than row stochastic
+t_2 <- t((2 * N - I_t)) %*% t - (t * t)
 
